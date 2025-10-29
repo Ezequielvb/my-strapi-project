@@ -430,6 +430,71 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCharacterCharacter extends Struct.CollectionTypeSchema {
+  collectionName: 'characters';
+  info: {
+    displayName: 'character';
+    pluralName: 'characters';
+    singularName: 'character';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    affiliation: Schema.Attribute.Enumeration<
+      [
+        'Z Fighter',
+        'Red Ribbon Army',
+        'Namekian Warrior',
+        'Freelancer',
+        'Army of Frieza',
+        'Other',
+        'Pride Troopers',
+        'Assistant of Vermoud',
+        'Assistant of Beerus',
+        'Villain',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    gender: Schema.Attribute.Enumeration<
+      ['Male', 'Female', 'Other', 'Unknown']
+    >;
+    ki: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::character.character'
+    > &
+      Schema.Attribute.Private;
+    maxki: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    race: Schema.Attribute.Enumeration<
+      [
+        'Saiyan',
+        'Namekian',
+        'Human',
+        'Majin',
+        'Frieza Race',
+        'Jiren Race',
+        'Android',
+        'God',
+        'Angel',
+        'Evil',
+        'Unknown',
+        'Nucleico benigno',
+        'Nucleico',
+      ]
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGrupoGrupo extends Struct.CollectionTypeSchema {
   collectionName: 'grupos';
   info: {
@@ -965,6 +1030,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::character.character': ApiCharacterCharacter;
       'api::grupo.grupo': ApiGrupoGrupo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

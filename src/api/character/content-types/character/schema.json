@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "characters",
+  "info": {
+    "singularName": "character",
+    "pluralName": "characters",
+    "displayName": "character"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "race": {
+      "type": "enumeration",
+      "enum": [
+        "Saiyan",
+        "Namekian",
+        "Human",
+        "Majin",
+        "Frieza Race",
+        "Jiren Race",
+        "Android",
+        "God",
+        "Angel",
+        "Evil",
+        "Unknown",
+        "Nucleico benigno",
+        "Nucleico"
+      ]
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female",
+        "Other",
+        "Unknown"
+      ]
+    },
+    "ki": {
+      "type": "string"
+    },
+    "maxki": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "affiliation": {
+      "type": "enumeration",
+      "enum": [
+        "Z Fighter",
+        "Red Ribbon Army",
+        "Namekian Warrior",
+        "Freelancer",
+        "Army of Frieza",
+        "Other",
+        "Pride Troopers",
+        "Assistant of Vermoud",
+        "Assistant of Beerus",
+        "Villain"
+      ]
+    }
+  }
+}
