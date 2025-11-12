@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "info": {
+    "singularName": "plan",
+    "pluralName": "planes",
+    "displayName": "Planes",
+    "description": "Modelo de planes de usuarios"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "actividades": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::actividad.actividad"
+    }
+  }
+}
